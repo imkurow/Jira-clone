@@ -12,7 +12,7 @@ const CommentSection = ({ taskId }) => {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/tasks/${taskId}/comments`);
+                const res = await axios.get(`/api/tasks/${taskId}/comments`);
                 setComments(res.data || []);
             } catch (err) {
                 console.error("Failed to load comments", err);
@@ -29,7 +29,7 @@ const CommentSection = ({ taskId }) => {
         if (!newComment.trim()) return;
 
         try {
-            const res = await axios.post(`http://localhost:5000/api/tasks/${taskId}/comments`, {
+            const res = await axios.post(`/api/tasks/${taskId}/comments`, {
                 content: newComment
             });
             setComments([...comments, res.data]);

@@ -29,7 +29,7 @@ const Reports = () => {
     useEffect(() => {
         const fetchVelocity = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/reports/velocity', {
+                const res = await axios.get('/api/reports/velocity', {
                     headers: { Authorization: `Bearer ${localStorage.getItem('jira-token')}` }
                 });
                 setVelocityData(res.data);
@@ -41,7 +41,7 @@ const Reports = () => {
         const fetchBurndown = async () => {
             if (!selectedSprintId) return;
             try {
-                const res = await axios.get(`http://localhost:5000/api/reports/burndown/${selectedSprintId}`, {
+                const res = await axios.get(`/api/reports/burndown/${selectedSprintId}`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('jira-token')}` }
                 });
                 setBurndownData(res.data);

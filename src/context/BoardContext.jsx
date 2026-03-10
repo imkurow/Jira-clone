@@ -16,8 +16,8 @@ export const BoardProvider = ({ children }) => {
         try {
             const tenantQuery = `tenantId=${activeTenant.id}`;
             const sprintQuery = sprintId ? `&sprintId=${sprintId}` : '';
-            const boardUrl = `http://localhost:5000/api/boards?${tenantQuery}${sprintQuery}`;
-            const sprintsUrl = `http://localhost:5000/api/sprints?${tenantQuery}`; // Add tenantId to sprints fetch
+            const boardUrl = `/api/boards?${tenantQuery}${sprintQuery}`;
+            const sprintsUrl = `/api/sprints?${tenantQuery}`; // Add tenantId to sprints fetch
 
             const [boardRes, sprintsRes] = await Promise.all([
                 axios.get(boardUrl),
@@ -73,7 +73,7 @@ export const BoardProvider = ({ children }) => {
 
         // Send the updated structure to backend to persist
         try {
-            await axios.put('http://localhost:5000/api/tasks/move', {
+            await axios.put('/api/tasks/move', {
                 columnsData: newColumnsData
             });
         } catch (e) {
@@ -85,7 +85,7 @@ export const BoardProvider = ({ children }) => {
     const addTask = async (content, priority, type, columnId = 'col-1', parentId = null) => {
         // Note: The backend returns the new generated ID
         try {
-            const res = await axios.post('http://localhost:5000/api/tasks', { columnId, content, priority, type, parentId });
+            const res = await axios.post('/api/tasks', { columnId, content, priority, type, parentId });
             const newTaskId = res.data.id;
 
             const newTask = {
@@ -121,7 +121,7 @@ export const BoardProvider = ({ children }) => {
 
     const updateTask = async (taskId, updates) => {
         try {
-            await axios.put(`http://localhost:5000/api/tasks/${taskId}`, updates);
+            await axios.put(`/api/tasks/${taskId}`, updates);
             setData(prev => ({
                 ...prev,
                 tasks: {
@@ -139,7 +139,7 @@ export const BoardProvider = ({ children }) => {
 
     const createSprint = async (sprintData) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/sprints', sprintData);
+            const res = await axios.post('/api/sprints', sprintData);
             setSprints([res.data, ...sprints]);
         } catch (err) {
             console.error("Failed to create sprint", err);
@@ -148,7 +148,7 @@ export const BoardProvider = ({ children }) => {
 
     const updateSprint = async (sprintId, status) => {
         try {
-            await axios.put(`http://localhost:5000/api/sprints/${sprintId}`, { status });
+            await axios.put(`/api/sprints/${sprintId}`, { status });
             // Refresh board data
             fetchBoard();
         } catch (err) {

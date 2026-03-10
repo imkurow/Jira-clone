@@ -21,8 +21,7 @@ const Auth = () => {
         return <Navigate to="/" />;
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const submitAuth = async () => {
         setError('');
 
         if (pendingCredential) {
@@ -86,7 +85,7 @@ const Auth = () => {
                     </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="auth-form">
+                <form onSubmit={(e) => { e.preventDefault(); void submitAuth(); }} className="auth-form">
                     {!pendingCredential && (
                         <>
                             <div className="form-group">
@@ -122,7 +121,7 @@ const Auth = () => {
                         </div>
                     )}
 
-                    <button type="submit" className="btn-primary auth-submit">
+                    <button type="button" onClick={() => void submitAuth()} className="btn-primary auth-submit">
                         {pendingCredential ? 'Complete Profile' : (isLogin ? 'Log In' : 'Sign Up')}
                     </button>
                 </form>

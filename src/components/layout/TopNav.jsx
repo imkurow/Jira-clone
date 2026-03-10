@@ -13,7 +13,7 @@ const TopNav = () => {
 
     useEffect(() => {
         if (user?.role === 'superadmin') {
-            axios.get('http://localhost:5000/api/tenants')
+            axios.get('/api/tenants')
                 .then(res => setTenants(res.data))
                 .catch(err => console.error("Failed to load tenants", err));
         }

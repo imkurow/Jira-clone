@@ -30,7 +30,7 @@ const SearchResults = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await axios.get(`http://localhost:5000/api/search?jql=${encodeURIComponent(jql)}`, {
+                const response = await axios.get(`/api/search?jql=${encodeURIComponent(jql)}`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('jira-token')}` }
                 });
                 setResults(response.data);

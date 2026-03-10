@@ -14,6 +14,8 @@ const Auth = () => {
 
     const { user, login, register, loginWithGoogle } = useAuth();
 
+    const isExistingAccountError = error.toLowerCase().includes('already exists');
+
     // If already logged in, redirect to the board
     if (user) {
         return <Navigate to="/" />;
@@ -73,7 +75,16 @@ const Auth = () => {
                     <p>{isLogin ? 'Log in to your account' : 'Create a new account'}</p>
                 </div>
 
-                {error && <div className="auth-error">{error}</div>}
+                {error && (
+                    <div className="auth-error">
+                        <div>{error}</div>
+                        {!isLogin && isExistingAccountError && (
+                            <div style={{ marginTop: '8px', fontSize: '13px' }}>
+                                This username is already registered. Try logging in or use another username.
+                            </div>
+                        )}
+                    </div>
+                )}
 
                 <form onSubmit={handleSubmit} className="auth-form">
                     {!pendingCredential && (

@@ -3,6 +3,13 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
+const getApiErrorMessage = (err, fallbackMessage) => {
+    if (err.response?.data?.error) return err.response.data.error;
+    if (err.response?.status) return `${fallbackMessage} (HTTP ${err.response.status})`;
+    if (err.request) return 'Cannot reach server. Please check backend connection and try again.';
+    return fallbackMessage;
+};
+
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -35,7 +42,7 @@ export const AuthProvider = ({ children }) => {
             setUser(user);
             return { success: true };
         } catch (err) {
-            return { success: false, error: err.response?.data?.error || 'Login failed' };
+            return { success: false, error: getApiErrorMessage(err, 'Login failed') };
         }
     };
 
@@ -51,7 +58,7 @@ export const AuthProvider = ({ children }) => {
             setUser(user);
             return { success: true };
         } catch (err) {
-            return { success: false, error: err.response?.data?.error || 'Registration failed' };
+            return { success: false, error: getApiErrorMessage(err, 'Registration failed') };
         }
     };
 
@@ -70,7 +77,7 @@ export const AuthProvider = ({ children }) => {
             // Include requireCompany flag from backend if returned (HTTP 428 Precondition Required)
             return {
                 success: false,
-                error: err.response?.data?.error || 'Google login failed',
+                error: getApiErrorMessage(err, 'Google login failed'),
                 requireCompany: err.response?.data?.requireCompany
             };
         }

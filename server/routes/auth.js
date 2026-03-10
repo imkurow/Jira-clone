@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
     try {
         const existingUser = db.prepare('SELECT id FROM users WHERE username = ?').get(username);
         if (existingUser) {
-            return res.status(400).json({ error: 'Username already exists' });
+            return res.status(409).json({ error: 'Username already exists. Please log in or choose a different username.' });
         }
 
         const salt = await bcrypt.genSalt(10);

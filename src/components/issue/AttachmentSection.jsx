@@ -12,7 +12,7 @@ const AttachmentSection = ({ taskId }) => {
     useEffect(() => {
         const fetchAttachments = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/tasks/${taskId}/attachments`);
+                const res = await axios.get(`/api/tasks/${taskId}/attachments`);
                 setAttachments(res.data || []);
             } catch (err) {
                 console.error("Failed to load attachments", err);
@@ -33,7 +33,7 @@ const AttachmentSection = ({ taskId }) => {
 
         setUploading(true);
         try {
-            const res = await axios.post(`http://localhost:5000/api/tasks/${taskId}/attachments`, formData, {
+            const res = await axios.post(`/api/tasks/${taskId}/attachments`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setAttachments([res.data, ...attachments]);
@@ -72,7 +72,7 @@ const AttachmentSection = ({ taskId }) => {
                 {attachments.map(att => (
                     <div key={att.id} className="attachment-item">
                         <Paperclip size={16} className="attachment-icon" />
-                        <a href={`http://localhost:5000${att.file_path}`} target="_blank" rel="noreferrer" className="attachment-link">
+                        <a href={att.file_path} target="_blank" rel="noreferrer" className="attachment-link">
                             {att.file_name}
                         </a>
                     </div>

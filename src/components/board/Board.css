@@ -1,0 +1,25 @@
+.board-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.board-header {
+    margin-bottom: 24px;
+}
+
+.board-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 16px 0;
+}
+
+.board-columns {
+    display: flex;
+    gap: 16px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    flex: 1;
+}

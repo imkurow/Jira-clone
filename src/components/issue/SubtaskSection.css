@@ -1,0 +1,101 @@
+.subtask-section {
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+.subtask-list {
+    margin-bottom: 15px;
+}
+
+.subtask-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border: 1px solid #dfe1e6;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    background: white;
+}
+
+.subtask-icon {
+    color: #4c9aff;
+    margin-right: 12px;
+}
+
+.subtask-id {
+    color: #6b778c;
+    font-size: 12px;
+    margin-right: 12px;
+    min-width: 60px;
+}
+
+.subtask-content {
+    flex: 1;
+    font-size: 14px;
+    color: #172b4d;
+}
+
+.subtask-status {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 6px;
+    border-radius: 3px;
+    background: #dfe1e6;
+    color: #42526e;
+}
+
+.subtask-status.in-progress {
+    background: #e6fcff;
+    color: #0065ff;
+}
+
+.subtask-status.done {
+    background: #e3fcef;
+    color: #006644;
+}
+
+.add-subtask-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #5e6c84;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+.add-subtask-btn:hover {
+    background: #ebecf0;
+    color: #172b4d;
+}
+
+.add-subtask-form {
+    border: 1px solid #4c9aff;
+    padding: 10px;
+    border-radius: 3px;
+    background: white;
+}
+
+.add-subtask-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #dfe1e6;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.add-subtask-form input:focus {
+    border-color: #4c9aff;
+    outline: none;
+}
+
+.add-subtask-form .form-actions {
+    display: flex;
+    gap: 8px;
+}

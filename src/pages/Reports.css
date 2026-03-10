@@ -1,0 +1,132 @@
+.reports-page {
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reports-header {
+    margin-bottom: 32px;
+}
+
+.reports-header h1 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #172b4d;
+    margin: 0 0 8px 0;
+}
+
+.reports-header p {
+    color: #5e6c84;
+    margin: 0;
+}
+
+.reports-nav {
+    display: flex;
+    gap: 16px;
+    border-bottom: 2px solid #ebecf0;
+    margin-bottom: 32px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 8px 16px;
+    margin-bottom: -2px;
+    color: #5e6c84;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    color: #172b4d;
+}
+
+.nav-btn.active {
+    color: #0052cc;
+    border-bottom-color: #0052cc;
+}
+
+.chart-card {
+    background: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31);
+    padding: 24px;
+    position: relative;
+}
+
+.card-header h2 {
+    font-size: 18px;
+    color: #172b4d;
+    margin: 0 0 8px 0;
+}
+
+.card-header p {
+    color: #5e6c84;
+    font-size: 14px;
+    margin: 0;
+    max-width: 800px;
+}
+
+.burndown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.sprint-selector select {
+    padding: 8px 12px;
+    border-radius: 3px;
+    border: 1px solid #dfe1e6;
+    background-color: #fafbfc;
+    color: #172b4d;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.sprint-selector select:hover {
+    background-color: #ebecf0;
+}
+
+.chart-container {
+    width: 100%;
+}
+
+.empty-chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #5e6c84;
+    font-size: 14px;
+    background-color: #fafbfc;
+    border: 1px dashed #dfe1e6;
+    border-radius: 3px;
+}
+
+.loading-state {
+    display: flex;
+    justify-content: center;
+    padding: 64px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 82, 204, 0.2);
+    border-radius: 50%;
+    border-top-color: #0052cc;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

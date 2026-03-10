@@ -1,0 +1,107 @@
+.sidebar {
+    width: 240px;
+    background-color: var(--color-bg-raised);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    transition: width var(--transition-normal);
+    z-index: 10;
+}
+
+.sidebar-header {
+    padding: 24px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-icon {
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-brand-primary);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-bg-base);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.project-info h2 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text-primary);
+}
+
+.project-info p {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin: 0;
+    margin-top: 2px;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 16px 8px;
+    overflow-y: auto;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.sidebar-nav li a:hover {
+    background-color: var(--color-bg-overlay);
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.sidebar-nav li.active a {
+    background-color: rgba(87, 157, 255, 0.1);
+    color: var(--color-brand-primary);
+}
+
+.sidebar-footer {
+    padding: 16px;
+    border-top: 1px solid var(--color-border);
+}
+
+.create-issue-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background-color: var(--color-brand-primary);
+    color: #101214;
+    /* Dark text on primary button */
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color var(--transition-fast);
+}
+
+.create-issue-btn:hover {
+    background-color: var(--color-brand-hover);
+}

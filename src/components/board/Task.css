@@ -1,0 +1,57 @@
+.task-card {
+    background-color: var(--color-bg-base);
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 8px;
+    cursor: grab;
+    border: 1px solid transparent;
+    transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.task-card:hover {
+    background-color: var(--color-bg-raised);
+}
+
+.task-card.is-dragging {
+    box-shadow: var(--shadow-md), 0 0 0 1px var(--color-brand-primary);
+    opacity: 0.9;
+    transform: rotate(2deg);
+}
+
+.task-content p {
+    font-size: 14px;
+    color: var(--color-text-primary);
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+}
+
+.task-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.avatar.micro {
+    width: 24px;
+    height: 24px;
+}
+
+.unassigned-avatar {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-overlay);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border-radius: 50%;
+    border: 1px dashed var(--color-border-hover);
+}

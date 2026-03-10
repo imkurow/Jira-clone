@@ -1,0 +1,121 @@
+.issue-detail-modal {
+    max-width: 900px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.issue-type-id {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.issue-type {
+    background-color: var(--color-bg-overlay);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+}
+
+.modal-body-split {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.main-content-area {
+    flex: 2;
+    padding: 24px;
+    overflow-y: auto;
+    border-right: 1px solid var(--color-border);
+}
+
+.sidebar-area {
+    flex: 1;
+    padding: 24px;
+    background-color: var(--color-bg-raised);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.issue-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 24px 0;
+    line-height: 1.3;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    color: var(--color-text-primary);
+}
+
+.description-box {
+    background-color: transparent;
+    width: 100%;
+}
+
+.empty-description {
+    padding: 12px;
+    background-color: var(--color-bg-overlay);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.empty-description:hover {
+    background-color: var(--color-border);
+}
+
+.description-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    white-space: pre-wrap;
+}
+
+.property {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.property label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
+.status-badge {
+    display: inline-flex;
+    background-color: rgba(75, 206, 151, 0.15);
+    color: var(--color-success);
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+.assignee-val,
+.priority-val {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}

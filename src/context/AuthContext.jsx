@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/login', { username, password });
+            const res = await axios.post('/api/auth/login', { username, password });
             const { token, user } = res.data;
 
             localStorage.setItem('jira-token', token);
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (username, password, companyName) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/register', { username, password, companyName });
+            const res = await axios.post('/api/auth/register', { username, password, companyName });
             const { token, user } = res.data;
 
             localStorage.setItem('jira-token', token);
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
 
     const loginWithGoogle = async (credential, companyName) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/google', { credential, companyName });
+            const res = await axios.post('/api/auth/google', { credential, companyName });
             const { token, user } = res.data;
 
             localStorage.setItem('jira-token', token);

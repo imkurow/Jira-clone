@@ -98,7 +98,7 @@ router.post('/login', async (req, res) => {
 
         const token = jwt.sign({ userId: user.id, username: user.username, tenantId: user.tenant_id, companyName: user.companyName, role: user.role }, JWT_SECRET, { expiresIn: '7d' });
 
-        res.json({ token, user: { id: user.id, username: user.username, avatar: user.avatar, companyName: user.companyName, role: user.role } });
+        res.json({ token, user: { id: user.id, username: user.username, avatar: user.avatar, companyName: user.companyName, role: user.role, tenantId: user.tenant_id } });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Server error during login' });
@@ -188,7 +188,7 @@ router.post('/google', async (req, res) => {
             role: user.role
         }, JWT_SECRET, { expiresIn: '7d' });
 
-        res.json({ token, user: { id: user.id, username: user.username, avatar: user.avatar, companyName: user.companyName, role: user.role } });
+        res.json({ token, user: { id: user.id, username: user.username, avatar: user.avatar, companyName: user.companyName, role: user.role, tenantId: user.tenant_id } });
 
     } catch (error) {
         console.error("Google Auth Error:", error);
